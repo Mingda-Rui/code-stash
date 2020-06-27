@@ -76,3 +76,13 @@ hello2.configure {
         println 'Hello Jupiter'
     }
 }
+
+// Groovy DSL shortcut notions
+task hello3 {
+    doLast {
+        println 'Hello world!'
+    }
+}
+hello3.doLast {
+    println "Greetins from the $hello.name task."
+}
