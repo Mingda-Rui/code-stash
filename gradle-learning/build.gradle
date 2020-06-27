@@ -13,6 +13,13 @@ task hello {
     }
 }
 
+task intro {
+    dependsOn hello
+    doLast {
+        println "I'm Gradle"
+    }
+}
+
 task upper {
     doLast {
         String someString = 'mY_nAmE'
