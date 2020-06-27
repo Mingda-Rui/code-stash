@@ -46,3 +46,12 @@ task taskY {
         println 'taskY'
     }
 }
+
+// Example 7. Dynamic creation of a task
+4.times { counter -> 
+    task "task$counter" {
+        doLast {
+            println "I'm task number $counter"
+        }
+    }
+}
