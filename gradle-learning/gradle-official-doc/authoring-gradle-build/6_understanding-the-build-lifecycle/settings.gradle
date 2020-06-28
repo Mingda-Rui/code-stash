@@ -18,5 +18,12 @@ println 'This is executed during the initialization phase.'
 includeFlat 'project3', 'project4'
 
 // Lookup of elements of the project tree via project descriptors
+// ProjectDescriptor rootProject (read-only)
 println rootProject.name
+// ProjectDescriptor project(File projectDir)
 println project(':projectA').name
+
+// Modification of elements of the project tree
+rootProject.name = 'main'
+project(':projectA').projectDir = new File(settingsDir, '../my-project-a')
+project(':projectA').buildFileName = 'projectA.gradle'
