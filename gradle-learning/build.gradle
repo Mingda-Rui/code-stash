@@ -5,14 +5,25 @@
  * Learn how to create Gradle builds at https://guides.gradle.org/creating-new-gradle-builds
  */
 
+import org.apache.commons.codec.binary.Base64
+
 apply plugin:'base'
 
 buildscript {
     repositories {
-        mavenCentral
+        mavenCentral()
     }
-    dpendencies {
+    dependencies {
         classpath group: 'commons-codec', name: 'commons-codec', version: '1.2'
+    }
+}
+
+// A build script with external dependencies
+task encode {
+    print "inside encode task"
+    doLast {
+        def byte[] encodedString = new Base64().encode('hello world\n'.getBytes())
+        println new String(encodedString)
     }
 }
 
