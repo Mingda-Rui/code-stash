@@ -137,3 +137,24 @@ task loadfile2 {
 File[] fileList(String dir) {
     file(dir).listFiles({file -> file.isFile() } as FileFilter).sort()
 }
+
+// Default tasks
+defaultTasks 'customizedClean', 'run'
+
+task customizedClean {
+    doLast {
+        println 'Default Cleaning!'
+    }
+}
+
+task run {
+    doLast {
+        println 'Default Running!'
+    }
+}
+
+task other {
+    doLast {
+        println "I'm not a default task!"
+    }
+}
