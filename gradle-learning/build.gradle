@@ -90,6 +90,8 @@ hello3.doLast {
 // Extra task properties
 task myTask {
     println "myTask start!"
+    // this ext object belongs to this task,
+    // not the global ext for the "project"
     ext.myProperty = "myValue"
     println "myTask sets value for ext.myProperty!"
 }
