@@ -102,3 +102,15 @@ task printTaskProperties {
         println "myTask.myProperty: $myTask.myProperty"
     }
 }
+
+// Using Ant Tasks
+task loadfile {
+    doLast {
+        def files = file('./antLoadfileResources').listFiles().sort()
+        file.each { File file ->
+            ant.loadfile(srcFile: file, property: file.name)
+            println " *** $file.name ***"
+            println "${ant.properties[file.name]}"
+        }
+    }
+}
