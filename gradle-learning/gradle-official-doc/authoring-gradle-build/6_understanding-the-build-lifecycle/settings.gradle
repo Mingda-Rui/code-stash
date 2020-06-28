@@ -12,4 +12,8 @@ rootProject.name = 'understanding-the-build-lifecycle'
 println 'This is executed during the initialization phase.'
 
 // Hierarchical layout
-include 'project1', 'project2:child', 'project3:child1'
+// include 'project1', 'project2:child', 'project3:child1'
+
+// Flat layout
+includeFlat 'project3', 'project4'
+
