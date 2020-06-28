@@ -26,3 +26,24 @@ task testBoth {
     }
     println 'This is executed during the configuration phase as well.'
 }
+
+// allprojects {
+//     afterEvaluate { project ->
+//         if (project.hasTests) {
+//             println "Adding test task to $project"
+//             project.task('test') {
+//                 doLast {
+//                     println "Running tests for $project"
+//                 }
+//             }
+//         }
+//     }
+// }
+
+tasks.whenTaskAdded { task ->
+    task.ext.srcDir = 'src/main/java'
+}
+
+task a
+
+println "source dir is $a.srcDir"
