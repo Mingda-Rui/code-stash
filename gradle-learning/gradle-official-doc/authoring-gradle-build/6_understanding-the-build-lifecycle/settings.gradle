@@ -17,3 +17,6 @@ println 'This is executed during the initialization phase.'
 // Flat layout
 includeFlat 'project3', 'project4'
 
+// Lookup of elements of the project tree via project descriptors
+println rootProject.name
+println project(':projectA').name
