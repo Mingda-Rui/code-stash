@@ -86,3 +86,17 @@ task hello3 {
 hello3.doLast {
     println "Greetins from the $hello.name task."
 }
+
+// Extra task properties
+task myTask {
+    println "myTask start!"
+    ext.myProperty = "myValue"
+    println "myTask sets value for ext.myProperty!"
+}
+
+task printTaskProperties {
+    dependsOn myTask
+    doLast {
+        println "myTask.myProperty: $myTask.myProperty"
+    }
+}
