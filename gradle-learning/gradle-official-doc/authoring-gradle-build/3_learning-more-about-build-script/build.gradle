@@ -10,3 +10,14 @@ apply plugin:'base'
 // Accessing property of the Project object
 println name
 println project.name
+
+// Using local variables
+// Local variables are declared with the `def` keyword.
+// They are only visible in the scope where they have been declared.
+// Local variables are a feature of the underlying Groovy language.
+def dest = "dest"
+
+task copy(type: Copy) {
+    from "source"
+    into dest
+}
