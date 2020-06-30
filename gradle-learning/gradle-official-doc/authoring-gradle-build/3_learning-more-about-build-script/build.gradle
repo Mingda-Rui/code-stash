@@ -81,3 +81,12 @@ task configure {
 // Iterale each method example in Groovy
 // Iterable gets an each() method
 configurations.runtimeClasspath.each { File f -> println f }
+
+// Property accessors
+// Using a getter method
+println project.buildDir
+println getProject().getBuilderDir()
+
+// Using a setter method
+project.buildDir = 'target'
+getProject().setBuildDir('target')
