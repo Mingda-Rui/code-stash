@@ -66,3 +66,14 @@ task configure {
         println pos.endIndex
     }
 }
+
+// Configuring arbitrary objects using a script
+// task configure2 {
+//     doLast {
+//         def pos = new FieldPosition(10)
+//         // Apply the script
+//         apply from: 'other.gradle', to: pos
+//         println pos.beginIndex
+//         println pos.endIndex
+//     }
+// }
