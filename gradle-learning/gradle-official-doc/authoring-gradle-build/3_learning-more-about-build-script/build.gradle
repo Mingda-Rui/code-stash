@@ -90,3 +90,7 @@ println getProject().getBuilderDir()
 // Using a setter method
 project.buildDir = 'target'
 getProject().setBuildDir('target')
+
+// Method call without parentheses
+test.systemProperty 'some.prop', 'value'
+test.systemProperty('some.prop', 'value')
