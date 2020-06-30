@@ -4,8 +4,10 @@
  * This is a general purpose Gradle build.
  * Learn how to create Gradle builds at https://guides.gradle.org/creating-new-gradle-builds
  */
-
-apply plugin:'base'
+plugins {
+    id 'java'
+    id 'base'
+}
 
 // Accessing property of the Project object
 println name
@@ -20,4 +22,34 @@ def dest = "dest"
 task copy(type: Copy) {
     from "source"
     into dest
+}
+
+// Using extra properties
+// Extra properties can be added, read and set via the owing object's `ext` property.
+// Alternatively, an `ext` block can be used to add multiple properties at once.
+ext {
+    springVersion = "3.1.0.RELEASE"
+    emailNotification = "build@master.org"
+}
+
+sourceSets.all { ext.purpose = null }
+
+sourceSets {
+    main {
+        purpose = "production"
+    }
+    test {
+        purpose = "test"
+    }
+    plugin {
+        purpose = "production"
+    }
+}
+
+task printProperties {
+    doLast {
+        println springVersion
+        println emailNotification
+        sourceSets.matching { it.purpose == "production" }.each {println it.name}
+    }
 }
