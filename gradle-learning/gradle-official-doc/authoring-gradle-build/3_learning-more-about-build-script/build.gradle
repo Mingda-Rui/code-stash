@@ -77,3 +77,7 @@ task configure {
 //         println pos.endIndex
 //     }
 // }
+
+// Iterale each method example in Groovy
+// Iterable gets an each() method
+configurations.runtimeClasspath.each { File f -> println f }
