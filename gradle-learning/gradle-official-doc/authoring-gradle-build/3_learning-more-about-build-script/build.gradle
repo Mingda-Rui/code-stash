@@ -110,3 +110,25 @@ Map<String, String> map = [key1: 'value1', key2: 'value2']
 // Groovy will coerce named arguments
 // into a single map argument
 apply plugin: 'java'
+
+
+// Closures as the last parameter in a method
+// The Gradle DSL uses closures in many places. When the last parameter of a method is
+// a closure, you can place the closure after the method call:
+// Example 10. Closure as method parameter
+repositories {
+    println "in a closure"
+}
+repositories() { println "in a closure" }
+repositories({ println "in a closure" })
+
+// Closure delegate
+// Each closure has a delegate object, which Groovy uses to look up variable and method references which are not local variables or
+// parameters of the closure. Gradle uses this for configuration closures, where the delegate object is set to the object to be 
+// confiured.
+// Example 11. Closure delegates
+depedencies {
+    assert delegate == project.dependencies
+    testImplementation("junit:junit:4.13")
+    delegate.testImplementation('junit:junit:4.13')
+}
