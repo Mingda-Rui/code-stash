@@ -21,5 +21,14 @@ repositories {
     // If gradle finds a module decriptor in a particular repository, it will attempt to download
     // all of the artifacts for that module from the same repository.
     // You can learn more about the inner workings of dependency downloads.
+
+    // flat repository resolver
+    flatDir {
+        dirs 'lib'
+    }
+    flatDir {
+        dirs 'lib1', 'lib2'
+    }
 }
+
 
