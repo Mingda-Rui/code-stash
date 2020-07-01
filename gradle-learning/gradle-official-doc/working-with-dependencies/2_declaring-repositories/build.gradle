@@ -49,6 +49,11 @@ repositories {
 
     // Adding the local Maven cache as a repository
     mavenLocal()
+
+    // Defining an Ivy repository with a standard layout
+    ivy {
+        url "http://repo.mycompany.com/repo"
+    }
 }
 
 
