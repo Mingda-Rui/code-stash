@@ -4,3 +4,13 @@
  * This is a general purpose Gradle build.
  * Learn how to create Gradle builds at https://guides.gradle.org/creating-new-gradle-builds
  */
+
+// Example 1. Extending a configuration from another configuration
+configurations {
+    smokeTest.extendsFrom testImplementation
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.13'
+    smokeTest 'org.apache.httpcomponents:httpclient:4.5.5'
+}
