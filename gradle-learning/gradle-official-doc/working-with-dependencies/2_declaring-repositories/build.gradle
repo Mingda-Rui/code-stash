@@ -140,6 +140,17 @@ repositories {
             snapshotsOnly()
         }
     }
+
+    // Example 18. Maven repository that supports artifacts without metadata
+    maven {
+        url "http://repo.mycompany.com/repo"
+        metadataSources {
+            mavenPom()
+            artifact()
+        }
+    }
+    // You can specify multiple sources to tell Gradle to keep looking if a file was not found. 
+    // In that case, the order of checking for sources is predefined.
 }
 
 
