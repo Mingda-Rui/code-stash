@@ -60,6 +60,13 @@ repositories {
         url "http://repo.mycompany.com/repo"
         layout "maven"
     }
+
+    ivy {
+        url "http://repo.mycompany.com/repo"
+        patternLayout {
+            artifact "[module]/[revision]/[type]/[artifact].[ext]"
+        }
+    }
 }
 
 
