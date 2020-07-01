@@ -46,6 +46,9 @@ repositories {
         artifactUrls "http://repo.mycompany.com/jars"
         artifactUrls "http://repo.mycompany.com/jars2"
     }
+
+    // Adding the local Maven cache as a repository
+    mavenLocal()
 }
 
 
