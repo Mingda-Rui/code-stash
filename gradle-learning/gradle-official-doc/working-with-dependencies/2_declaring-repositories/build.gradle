@@ -54,6 +54,12 @@ repositories {
     ivy {
         url "http://repo.mycompany.com/repo"
     }
+
+    // Defining a named layout for an Ivy repository
+    ivy {
+        url "http://repo.mycompany.com/repo"
+        layout "maven"
+    }
 }
 
 
