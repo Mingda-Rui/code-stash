@@ -85,6 +85,15 @@ repositories {
             m2compatible = ture
         }
     }
+
+    // Ivy repository with authentication
+    ivy {
+        url "http://repo.mycompany.com/repo"
+        credentials {
+            username "user"
+            password "password"
+        }
+    }
 }
 
 
