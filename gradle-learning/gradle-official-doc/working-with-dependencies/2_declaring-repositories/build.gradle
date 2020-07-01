@@ -76,6 +76,15 @@ repositories {
             ivy "ivy-files/[organisation]/[module]/[revision]/ivy.xml"
         }
     }
+
+    // Ivy repository with Maven compatiable layout
+    ivy {
+        url "http://repo.mycompany.com/repo"
+        patternLayout {
+            artifact "[organisation]/[module]/[revision]/[artifact]-[revision].[ext]"
+            m2compatible = ture
+        }
+    }
 }
 
 
