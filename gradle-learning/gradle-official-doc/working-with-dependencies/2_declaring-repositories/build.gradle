@@ -34,6 +34,18 @@ repositories {
     maven {
         url "http://repo.mycompany.com/maven2"
     }
+
+    // Sometimes a repository will have the POMs published to one location, 
+    // and the JARs and other artifacts published at another location.
+    // To define such a repository, you can do:
+    // Example 7. Adding additional Maven repositories for JAR files
+    maven {
+        // Look for POMs and artifacts, such as JARs, here
+        url "http:// repo2.mycompany.com/maven2"
+        // Look for artifacts here if not found at the above location
+        artifactUrls "http://repo.mycompany.com/jars"
+        artifactUrls "http://repo.mycompany.com/jars2"
+    }
 }
 
 
