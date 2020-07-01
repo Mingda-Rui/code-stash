@@ -94,6 +94,21 @@ repositories {
             password "password"
         }
     }
+
+    // Declaring a repository filter
+    maven {
+        url "https://repo.mycompany.com/maven2"
+        content {
+            // this repository *only* contains artifacts with group "my.company"
+            includeGroup "my.company"
+        }
+        jcenter {
+            content {
+                // this repository contains everything BUT artifacts with group starting with "my.company"
+                excludeGroupByRegex "my\\.company.*"
+            }
+        }
+    }
 }
 
 
