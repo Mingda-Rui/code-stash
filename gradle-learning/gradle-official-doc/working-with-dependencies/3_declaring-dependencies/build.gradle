@@ -14,3 +14,13 @@ dependencies {
     testImplementation 'junit:junit:4.13'
     smokeTest 'org.apache.httpcomponents:httpclient:4.5.5'
 }
+
+// Example 2. Configurations are used to declare dependencies
+configurations {
+    // declare a "configuration" name "someConfiguration"
+    someConfiguration
+}
+dependencies {
+    // add a project dependency to the "someConfiguration" configuration
+    someConfiguration project(":lib")
+}
