@@ -103,3 +103,9 @@ dependencies {
     externalLibs files('libs/commons-lang.jar', 'libs/log4j.jar')
     deploymentTools(fileTree('tools') { include '*.exe' })
 }
+
+// Example 8. File dependencies
+dependencies {
+    runtimeOnly files('libs/a.jar', 'libs/b.jar')
+    runtimeOnly fileTree('libs') { include '*.jar' }
+}
