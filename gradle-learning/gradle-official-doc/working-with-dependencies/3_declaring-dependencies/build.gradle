@@ -24,3 +24,28 @@ dependencies {
     // add a project dependency to the "someConfiguration" configuration
     someConfiguration project(":lib")
 }
+
+// Example 3. Configurations representing concrete dependency graphs
+configurations {
+    // declare a configuration that is going to resolve the compile classpath of the application
+    compileClasspath.extendsFrom(someConfigurations)
+
+    // declare a configuration that is going to resolve the runtime classpath of the application
+    runtimeClasspath.extendsFrom(someConfiguration)
+}
+
+// Example 4. Setting up configurations
+configurations {
+    // A configuration meant for consumers that need the API of this component
+    exosedApi {
+        // This configuration is an "outgoing" configuration, it's not meant to be resolved
+        canBeResolved = false
+        // As an outgoing configuration, explain that consumers may want to consume it
+        canBeConsumed = true
+    }
+    // A configuration meant for consumers that need the implementation of this component
+    exposedRuntime {
+        canBeResolved = false
+        canBeConsumed = true
+    }
+}
