@@ -5,6 +5,10 @@
  * Learn how to create Gradle builds at https://guides.gradle.org/creating-new-gradle-builds
  */
 
+plugins {
+    id 'java-library'
+}
+
 // Example 1. Extending a configuration from another configuration
 configurations {
     smokeTest.extendsFrom testImplementation
@@ -139,5 +143,16 @@ project(':web-servcie') {
     dependencies {
         implementation project(':utils')
         implementation project(':api')
+    }
+}
+
+// Example 15. Giving a reason for choosing a certain module version in a dependency declaration
+repositories {
+    jcenter()
+}
+
+depednencies {
+    implementation('org.ow2.asm:asm:7.1') {
+        because 'we require a JDK 9 compatible bytecode generator'
     }
 }
