@@ -133,3 +133,11 @@ task list(dependsOn: configurations.compileClasspath) {
 dependencies {
     implementation project(':shared')
 }
+
+// Example 11. Declaring project dependencies
+project(':web-servcie') {
+    dependencies {
+        implementation project(':utils')
+        implementation project(':api')
+    }
+}
