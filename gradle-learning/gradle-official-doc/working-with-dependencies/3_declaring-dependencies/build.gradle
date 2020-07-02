@@ -128,3 +128,8 @@ task list(dependsOn: configurations.compileClasspath) {
         println "classpath = ${configurations.compileClasspath.collect { File file -> file.name }}"
     }
 }
+
+// Example 10. Project dependencies
+dependencies {
+    implementation project(':shared')
+}
