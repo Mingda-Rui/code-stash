@@ -90,3 +90,16 @@ dependencies {
         transitive = true
     }
 }
+
+// Example 7. Declaring multiple file dependencies
+configurations {
+    antContrib
+    externalLibs
+    deploymentTools
+}
+
+dependencies {
+    antContrib files('ant/antcontrib.jar')
+    externalLibs files('libs/commons-lang.jar', 'libs/log4j.jar')
+    deploymentTools(fileTree('tools') { include '*.exe' })
+}
